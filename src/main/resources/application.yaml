@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: studiobooking
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/studiobooking
+    username: root
+    password: 123456789
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
