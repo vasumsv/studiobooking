@@ -29,11 +29,12 @@ public class Booking {
 
     private String serviceType;
 
-    @Column(nullable = false)
+    @Column(name = "start_time", nullable = false)
     private LocalDateTime start;
 
-    @Column(nullable = false)
+    @Column(name = "end_time", nullable = false)
     private LocalDateTime end;
+
 
     private String location;
 
