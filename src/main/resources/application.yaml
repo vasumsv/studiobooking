@@ -1,14 +1,15 @@
 spring:
-  application:
-    name: studiobooking
-
   datasource:
-    url: jdbc:mysql://localhost:3306/studiobooking
-    username: root
-    password: 123456789
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:postgresql://studiobooking.postgres.database.azure.com:5432/studiobookingdb?sslmode=require
+    username: vasumsv
+    password: "NewLife3!"
+    driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
