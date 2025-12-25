@@ -16,8 +16,10 @@ public class CalendarAvailabilityService {
 
     private final CalendarAvailabilityRepository repository;
 
-    public CalendarAvailability setAvailability(CalendarAvailabilityRequest req) {
+    public CalendarAvailability setAvailability(CalendarAvailabilityRequest req, UUID studioId) {
+
         CalendarAvailability availability = CalendarAvailability.builder()
+                .studioId(studioId)
                 .photographerId(req.getPhotographerId())
                 .date(req.getDate())
                 .availableFrom(req.getAvailableFrom())
@@ -28,11 +30,11 @@ public class CalendarAvailabilityService {
         return repository.save(availability);
     }
 
-    public List<CalendarAvailability> getAvailabilityForPhotographer(UUID id) {
-        return repository.findByPhotographerId(id);
+    public List<CalendarAvailability> getAvailabilityForPhotographer(UUID id, UUID studioId) {
+        return repository.findByPhotographerIdAndStudioId(id, studioId);
     }
 
-    public List<CalendarAvailability> getAvailabilityForDate(LocalDate date) {
-        return repository.findByDate(date);
+    public List<CalendarAvailability> getAvailabilityForDate(LocalDate date, UUID studioId) {
+        return repository.findByDateAndStudioId(date, studioId);
     }
 }

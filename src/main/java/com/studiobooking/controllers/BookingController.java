@@ -1,5 +1,6 @@
 package com.studiobooking.controllers;
 
+import com.studiobooking.dto.BookingConflictResponse;
 import com.studiobooking.dto.BookingRequest;
 import com.studiobooking.entities.Booking;
 import com.studiobooking.services.BookingService;
@@ -24,7 +25,7 @@ public class BookingController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Booking> getBooking(@PathVariable UUID id) {
+    public ResponseEntity<Booking> getBookingById(@PathVariable UUID id) {
         return ResponseEntity.ok(bookingService.getById(id));
     }
 
@@ -35,4 +36,12 @@ public class BookingController {
     ) {
         return ResponseEntity.ok(bookingService.getRange(start, end));
     }
+
+    @PostMapping("/check-conflict")
+    public ResponseEntity<BookingConflictResponse> checkConflict(
+            @RequestBody BookingRequest request
+    ) {
+        return ResponseEntity.ok(bookingService.checkForConflict(request));
+    }
+
 }

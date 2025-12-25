@@ -2,6 +2,7 @@ package com.studiobooking.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -42,5 +43,8 @@ public class Booking {
     private Double price;
 
     @Column(name = "assigned_photographers")
-    private String assignedPhotographers; // comma separated UUID list
+    private String assignedPhotographers; // comma separated UUID list (for now)
+
+    @Column(nullable = false)
+    private UUID studioId;
 }

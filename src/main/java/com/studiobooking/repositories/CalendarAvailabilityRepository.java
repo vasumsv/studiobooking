@@ -9,9 +9,7 @@ import java.util.UUID;
 
 public interface CalendarAvailabilityRepository extends JpaRepository<CalendarAvailability, UUID> {
 
-    List<CalendarAvailability> findByPhotographerId(UUID photographerId);
+    List<CalendarAvailability> findByPhotographerIdAndStudioId(UUID photographerId, UUID studioId);
 
-    List<CalendarAvailability> findByPhotographerIdAndDate(UUID photographerId, LocalDate date);
-
-    List<CalendarAvailability> findByDate(LocalDate date);
+    List<CalendarAvailability> findByDateAndStudioId(LocalDate date, UUID studioId);
 }
